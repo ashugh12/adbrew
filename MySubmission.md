@@ -4,6 +4,26 @@
 
 This project implements a full-stack TODO application using React (frontend), Django REST Framework (backend), and MongoDB (database), all containerized with Docker. The application allows users to create and view TODO items through a web interface.
 
+## Repository
+
+The complete source code is available at: [https://github.com/ashugh12/adbrew.git](https://github.com/ashugh12/adbrew.git)
+
+### Cloning the Repository
+
+To clone this repository, use the following command:
+
+```bash
+git clone https://github.com/ashugh12/adbrew.git
+cd adbrew/adb_test
+```
+
+Or if you prefer SSH:
+
+```bash
+git clone git@github.com:ashugh12/adbrew.git
+cd adbrew/adb_test
+```
+
 ## Architecture
 
 The application consists of three separate Docker containers:
@@ -102,7 +122,13 @@ adb_test/
 
 ### Steps
 
-1. **Set the environment variable**:
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone https://github.com/ashugh12/adbrew.git
+   cd adbrew/adb_test
+   ```
+
+2. **Set the environment variable**:
    ```bash
    export ADBREW_CODEBASE_PATH="$(pwd)/src"
    ```
@@ -111,23 +137,23 @@ adb_test/
    export ADBREW_CODEBASE_PATH="/path/to/adb_test/src"
    ```
 
-2. **Build the containers**:
+3. **Build the containers**:
    ```bash
    docker-compose build
    ```
 
-3. **Start all services**:
+4. **Start all services**:
    ```bash
    docker-compose up -d
    ```
 
-4. **Verify containers are running**:
+5. **Verify containers are running**:
    ```bash
    docker ps
    ```
    You should see three containers: `api`, `app`, and `mongo`
 
-5. **Access the application**:
+6. **Access the application**:
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8000/todos
    - MongoDB: localhost:27017
