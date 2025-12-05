@@ -1,0 +1,17 @@
+FROM python:3.8-slim-bullseye
+
+WORKDIR /src
+
+RUN apt-get update -y && apt-get install -y \
+    curl gcc build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install pip
+RUN python -m pip install --upgrade pip==23.3.2
+
+# Install Python deps
+COPY src/requirements.txt /src/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Correct path to Django project inside container
+CMD ["bash", "-c", "cd /src/src/rest && python manage.py runserver 0.0.0.0:8000"]
